@@ -1,41 +1,52 @@
+package Practica02;
 import javax.swing.JOptionPane;
-public class Persona {
-    int num_trab;
-    static String [] nombrearreglo;
-    static int [] pagobrutoarreglo,essaludarreglo,fonaviarreglo,bonificacionarreglo,sueldoarreglo;
+public class Cola {
     
-    
-    
-    public void crearArreglo(){
-        num_trab = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de trabajadores  : "));
-    
-        JOptionPane.showMessageDialog(null,"El arreglo fue creado ");
-    }
-    
-    public void ingresarNombre(){
-        String datos;
-        datos = JOptionPane.showInputDialog("Ingrese nombre de trabajador : ");
-        nombrearreglo = new String[num_trab];
-        JOptionPane.showMessageDialog(null, datos);
-    }
-    
-    public void ingresarPagoBruto(){
-        String datos;
-        datos = JOptionPane.showInputDialog("Ingrese pago bruto : ");
-        pagobrutoarreglo = new int [num_trab];
-        JOptionPane.showMessageDialog(null, datos);   
-    }
-    
-    
-    public void mostrarDatos(){
-        String datos;
+    static Persona objMenu = new Persona ();
+
+    public static void main(String[] args) {
+       
+        int opcion;
+        String datos = "";
+        do{
+                    datos = "\nMenu de opciones\n"
+                          + "[1] Crear arreglo\n"
+                          + "[2] Ingresar nombres\n"
+                          + "[3] Ingresar sueldo bruto\n"
+                          + "[4] Mostrar datos\n"
+                          + "[0] Salir";
+            
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(datos));
+            
+            switch(opcion){
+                case 0:
+                    JOptionPane.showMessageDialog(null,"Salio del programa");
+                    break;
+                
+                case 1:
+                    objMenu.crearArreglo();
+                    break;
+                
+                case 2:
+                    objMenu.ingresarNombre();
+                    break;    
+                    
+                case 3:
+                    objMenu.ingresarPagoBruto();
+                    break;
+                    
+                case 4:
+                    objMenu.mostrarDatos();
+                    break;     
+                    
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion incorrecta");
+                    
+                    
+            }
+            
+        }while (opcion != 0);
         
-        JOptionPane.showMessageDialog(null,"La lista es:"+nombrearreglo+
-                pagobrutoarreglo+
-                essaludarreglo+fonaviarreglo+
-                bonificacionarreglo);
- 
-    } 
-    
+    }
     
 }
